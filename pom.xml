@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>assignment_1</module>
-        <module>inclass_assignment</module>
         <module>LectureTest</module>
     </modules>
 
@@ -20,13 +19,5 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter</artifactId>
-        <version>5.8.1</version>
-        <scope>test</scope>
-    </dependency>
-</dependencies>
 
 </project>

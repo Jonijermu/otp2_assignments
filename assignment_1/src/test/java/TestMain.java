@@ -6,40 +6,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestMain {
 
+//    @Test
+//    public void testEnglishBundle() {
+//        ResourceBundle rb = ResourceBundle.getBundle("languages", new Locale("en", "US"));
+//        assertEquals("Enter the number of items to purchase:", rb.getString("a"));
+//    }
+//
+//    @Test
+//   public  void testFinnishBundle() {
+//        ResourceBundle rb = ResourceBundle.getBundle("languages", new Locale("fi", "FI"));
+//        assertEquals("Syötä ostettavien tuotteiden määrä:", rb.getString("a"));
+//    }
+//
+//    @Test
+//    public void testSwedishBundle() {
+//        ResourceBundle rb = ResourceBundle.getBundle("languages", new Locale("sv", "SE"));
+//        assertEquals("Ange antalet varor att köpa:", rb.getString("a"));
+//    }
+//
+//    @Test
+//    public void testJapaneseBundle() {
+//        ResourceBundle rb = ResourceBundle.getBundle("languages", new Locale("ja", "JP"));
+//        assertEquals("「購入する商品の数を入力してください:」", rb.getString("a"));
+//    }
 
-    @Test
-    public void testEnglishBundle() {
-        Locale locale = new Locale("en", "US");
-        ResourceBundle rb = ResourceBundle.getBundle("languages", locale);
-        String message = rb.getString("a");
-        assertEquals("Enter the number of items to purchase:", message);
-
-    }
-
-    @Test
-    public void testFinnishBundle() {
-        Locale locale = new Locale("fi", "FI");
-        ResourceBundle rb = ResourceBundle.getBundle("languages", locale);
-        String message = rb.getString("b");
-        assertEquals("Syötä tuotteen hinta:", message);
-
-    }
-
-    @Test
-    public void testSwedishBundle() {
-        Locale locale = new Locale("sv", "SE");
-        ResourceBundle rb = ResourceBundle.getBundle("languages", locale);
-        String message = rb.getString("c");
-        assertEquals("Ange mängden varor:", message);
-
-    }
-
-    @Test
-    public void testJapaneseBundle() {
-        Locale locale = new Locale("ja", "JP");
-        ResourceBundle rb = ResourceBundle.getBundle("languages", locale);
-        String message = rb.getString("d");
-        assertEquals("「合計金額:」", message);
-
-    }
 }

@@ -26,7 +26,7 @@ pipeline {
                }
                stage('Code Coverage') {
                    steps {
-                       bat 'mvn jacoco:report'
+                       bat 'mvn -pl assignment_1 jacoco:report'
                    }
                }
                stage('Build Docker Image') {

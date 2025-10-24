@@ -43,7 +43,7 @@ public class Main {
             case (2) -> new Locale("fi", "FI");
             case (3) -> new Locale("sv", "SE");
             case (4) -> new Locale("ja", "JP");
-            default -> new Locale("en", "US");
+            default -> throw new IllegalStateException("Unexpected value: " + option);
         };
 
 

@@ -10,13 +10,11 @@ pipeline {
         // Docker image tag
         DOCKER_IMAGE_TAG = 'latest'
     }
-    tools {
-        maven 'Maven3'
-    }
+
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/Jonijermu/opt2_assignments.git'
+                git branch: 'master', url: 'https://github.com/Jonijermu/otp2_assignments.git'
             }
         }
 

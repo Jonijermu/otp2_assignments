@@ -1,11 +1,7 @@
-
-
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestMain {
@@ -22,7 +18,7 @@ public class TestMain {
 
     @Test
     public void testFinnishBundle() {
-        Locale locale = new Locale("fi", "UFI");
+        Locale locale = new Locale("fi", "FI");
         ResourceBundle rb = ResourceBundle.getBundle("languages", locale);
         String message = rb.getString("b");
         assertEquals("Syötä tuotteen hinta:", message);

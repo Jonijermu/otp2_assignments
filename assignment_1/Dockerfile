@@ -1,6 +1,11 @@
+FROM maven:latest
 
-FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY target/assignment_1.jar /app/assignment_1.jar
-ENV LANG C.UTF-8
-ENTRYPOINT ["java", "-jar", "assignment_1.jar"]
+
+COPY pom.xml /app/
+
+COPY . /app/
+
+RUN mvn package
+
+cmd ["java", "-jar", "target/test.jar"]

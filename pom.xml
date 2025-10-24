@@ -8,6 +8,7 @@
     <artifactId>otp2_assignments</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>assignment_1</module>
         <module>LectureTest</module>
@@ -18,6 +19,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
 
 
 </project>

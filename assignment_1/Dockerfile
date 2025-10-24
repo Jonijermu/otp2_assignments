@@ -15,4 +15,4 @@ WORKDIR /app
 # Copy built jar from build stage (if any artifact exists)
 COPY --from=build /app/target /app/target
 
-CMD ["java", "-jar", "/app/target/assignment_1-1.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/app/target/assignment_1.jar"]

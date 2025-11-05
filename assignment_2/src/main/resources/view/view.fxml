@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <ComboBox fx:id="languageComboBox" layoutX="14.0" layoutY="14.0" onAction="#selectLanguage" promptText="Language" />
+      <Label layoutX="132.0" layoutY="49.0" text="Shopping App">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="numberOfItems" layoutX="233.0" layoutY="96.0" prefHeight="20.0" prefWidth="127.0" text="Enter number of items" />
+      <Slider fx:id="sliderPrice" blockIncrement="1.0" layoutX="32.0" layoutY="143.0" majorTickUnit="5.0" max="50.0" minorTickCount="5" prefHeight="37.0" prefWidth="189.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+      <Label fx:id="itemPrice" layoutX="235.0" layoutY="143.0" text="Enter price for item" />
+      <Slider fx:id="sliderQuantity" blockIncrement="5.0" layoutX="32.0" layoutY="196.0" majorTickUnit="5.0" max="20.0" prefHeight="37.0" prefWidth="189.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label fx:id="itemQuantity" layoutX="233.0" layoutY="196.0" text="Enter quantity for item" />
+      <Button fx:id="calculateButton" layoutX="137.0" layoutY="308.0" mnemonicParsing="false" onAction="#calculate" prefHeight="37.0" prefWidth="94.0" text="calculate" />
+      <Label layoutX="132.0" layoutY="366.0" prefHeight="17.0" prefWidth="62.0" text="Full price: " />
+      <Label fx:id="priceLabel" layoutX="199.0" layoutY="366.0" text="0" />
+      <Label fx:id="priceSymbol" layoutX="212.0" layoutY="366.0" text="\$" />
+      <Button fx:id="addItemButton" layoutX="32.0" layoutY="233.0" mnemonicParsing="false" onAction="#addItem" prefHeight="37.0" prefWidth="94.0" text="add Item" />
+      <Slider fx:id="sliderNumberOfItems" blockIncrement="5.0" layoutX="32.0" layoutY="87.0" majorTickUnit="5.0" max="20.0" prefHeight="37.0" prefWidth="189.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+   </children>
+</Pane>

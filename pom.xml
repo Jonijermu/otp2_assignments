@@ -12,6 +12,7 @@
     <modules>
         <module>assignment_1</module>
         <module>LectureTest</module>
+        <module>assignment_2</module>
     </modules>
 
     <properties>

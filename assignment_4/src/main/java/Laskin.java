@@ -21,16 +21,16 @@ public class Laskin {
         String resultDes = "Result is: %.2f";
 
         double result1 = addValues(num1, num2);
-        logger.info(() -> String.format("Add: " + resultDes, result1));
+        logger.info(() -> String.format("Add: %s", String.format(resultDes, result1)));
 
         double result2 = subtractValue(num1, num2);
-        logger.info(() -> String.format("Subtract: " + resultDes, result2));
+        logger.info(() -> String.format("Subtract: %s", String.format(resultDes, result2)));
 
         double result3 = multiplyValues(num1, num2);
-        logger.info(() -> String.format("Multiply: " + resultDes, result3));
+        logger.info(() -> String.format("Multiply: %s", String.format(resultDes, result3)));
 
         double result4 = divideValues(num1, num2);
-        logger.info(() -> String.format("Divide: " + resultDes, result4));
+        logger.info(() -> String.format("Divide: %s", String.format(resultDes, result4)));
     }
 
     // Arithmetic methods

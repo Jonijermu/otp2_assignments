@@ -7,23 +7,23 @@ public class LaskinTest {
 
     @Test
     public void addValues() {
-        assertEquals(16, 0.1, Laskin.addValues(12, 4));
+        assertEquals(16, Laskin.addValues(12, 4));
     }
 
     @Test
     public void subtractValue() {
-        assertEquals(-8, Laskin.subtractValue(-12, -4), 0.01);
+        assertEquals(-8, Laskin.subtractValue(-12, -4));
 
     }
 
     @Test
     public void multiplyValues() {
-        assertEquals(24, Laskin.multiplyValues(12, 2), 0.01);
+        assertEquals(24, Laskin.multiplyValues(12, 2));
     }
 
     @Test
     public void divideValues() {
-        assertEquals(6, Laskin.divideValues(12, 2), 0.01);
+        assertEquals(6, Laskin.divideValues(12, 2));
     }
 
 }

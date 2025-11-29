@@ -1,20 +1,19 @@
 # Use an official Maven image as a parent image
 FROM maven:latest
 
-# Set metadata information
 LABEL authors="joni"
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the pom.xml file to the container
-COPY pom.xml /app/
-
-# Copy the entire project to the container
+# Copy the full project (all modules)
 COPY . /app/
 
-# Package your application
-RUN mvn package
+# Build the full multi-module project
+RUN mvn clean install -DskipTests
 
-# Run the main class (assuming your application has a main class)
-CMD ["java", "-jar", "target/app.jar"]
+# Set working directory to assignment_5 (the module you want to run)
+WORKDIR /app/assignment_5
+
+# Run the JAR produced for assignment_5
+CMD ["java", "-jar", "target/assignment_5.jar"]

@@ -23,46 +23,53 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                bat 'mvn clean install'
-            }
-        }
+       stage('Build') {
+           steps {
+               // Build only assignment_5 module
+               dir('assignment_5') {
+                   bat 'mvn clean install'
+               }
+           }
+       }
 
-        stage('SonarQube Analysis') {
+       stage('SonarQube Analysis') {
+           steps {
+               dir('assignment_5') {
+                   script {
+                       def scannerHome = tool 'SonarScanner'
+                       withSonarQubeEnv('SonarQubeServer') {
+                           bat """
+                               "${scannerHome}\\bin\\sonar-scanner" ^
+                               -Dsonar.projectKey=assignment_5 ^
+                               -Dsonar.projectName=assignment_5 ^
+                               -Dsonar.sources=src ^
+                               -Dsonar.java.binaries=target/classes ^
+                               -Dsonar.host.url=http://localhost:9000 ^
+                               -Dsonar.login=${env.SONAR_TOKEN}
+                           """
+                       }
+                   }
+               }
+           }
+       }
+
+        stage('Build Docker Image') {
             steps {
-                dir('otp2_assignments/assignment_5') {
+                dir('assignment_5') {
                     script {
-                        def scannerHome = tool 'SonarScanner'
-                        def scannerCmd = "\"${scannerHome}\\bin\\sonar-scanner.bat\" " +
-                                         "-Dsonar.projectKey=assignment_5 " +
-                                         "-Dsonar.sources=src/main/java " +
-                                         "-Dsonar.java.binaries=target/classes " +
-                                         "-Dsonar.projectName=assignment_5 " +
-                                         "-Dsonar.host.url=http://localhost:9000 " +
-                                         "-Dsonar.login=${env.SONAR_TOKEN}"
-
-                        withSonarQubeEnv('SonarQubeServer') {
-                            bat scannerCmd
-                        }
+                        docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
                     }
                 }
             }
         }
 
-        stage('Build Docker Image') {
+         stage('Push Docker Image to Docker Hub') {
             steps {
-                script {
-                    docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
-                }
-            }
-        }
-
-        stage('Push Docker Image to Docker Hub') {
-            steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKERHUB_CREDENTIALS_ID) {
-                        docker.image("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}").push()
+                dir('assignment_5') {
+                    script {
+                        docker.withRegistry('https://index.docker.io/v1/', DOCKERHUB_CREDENTIALS_ID) {
+                            docker.image("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}").push()
+                        }
                     }
                 }
             }

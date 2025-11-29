@@ -3,7 +3,8 @@ FROM maven:latest
 
 LABEL authors="joni"
 
-WORKDIR /app/assignment_5
-COPY assignment_5 /app/assignment_5
-RUN mvn clean package -DskipTests
+WORKDIR /app
+COPY pom.xml /app
+COPY src /app/src
+RUN mvn clean package
 CMD ["java", "-jar", "target/assignment_5.jar"]

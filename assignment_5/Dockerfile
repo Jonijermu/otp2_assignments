@@ -13,7 +13,7 @@ COPY pom.xml /app/
 COPY . /app/
 
 # Build the full multi-module project
-RUN mvn clean install -DskipTests
+RUN mvn clean package -pl assignment_5 -am -DskipTest
 
 # Run the JAR produced for assignment_5
 CMD ["java", "-jar", "target/assignment_5.jar"]

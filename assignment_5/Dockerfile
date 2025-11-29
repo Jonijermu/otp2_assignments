@@ -4,7 +4,7 @@ FROM maven:latest
 LABEL authors="joni"
 
 # Set working directory
-WORKDIR /app
+WORKDIR /app/assignment_5
 
 # Copy the full project (all modules)
 COPY pom.xml /app/
@@ -13,7 +13,7 @@ COPY pom.xml /app/
 COPY . /app/
 
 # Build the full multi-module project
-RUN mvn clean package -pl assignment_5 -am -DskipTest
+RUN mvn clean install -pl assignment_5 -am -DskipTests
 
 # Run the JAR produced for assignment_5
 CMD ["java", "-jar", "target/assignment_5.jar"]

@@ -29,26 +29,20 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    // Resolve SonarScanner path
-                    scannerHome = tool 'SonarScanner'
-                }
-                withSonarQubeEnv('SonarQubeServer') {
-                    // Run SonarScanner with proper Windows quoting
-                    bat """
-                        \\"${scannerHome}\\bin\\sonar-scanner\\" ^
-                        -Dsonar.projectKey=sonar-demo ^
-                        -Dsonar.sources=src ^
-                        -Dsonar.projectName=assignment_5 ^
-                        -Dsonar.host.url=http://localhost:9000 ^
-                        -Dsonar.login=${env.SONAR_TOKEN} ^
-                        -Dsonar.java.binaries=target/classes
-                    """
-                }
-            }
-        }
+      stage('SonarQube Analysis') {
+          steps {
+              dir('otp2_assignments/assignment_5') {
+                  script {
+                      def scannerHome = tool 'SonarScanner'
+                      def scannerCmd = "\"${scannerHome}\\bin\\sonar-scanner\""
+
+                      withSonarQubeEnv('SonarQubeServer') {
+                          bat scannerCmd
+                      }
+                  }
+              }
+          }
+      }
 
         stage('Build Docker Image') {
             steps {

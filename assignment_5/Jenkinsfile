@@ -29,17 +29,11 @@ pipeline {
             }
         }
 
-      stage('SonarQube Analysis') {
-          steps {
-              dir('otp2_assignments/assignment_5') {
-                  script {
-                      def scannerHome = tool 'SonarScanner'
-                      def scannerCmd = "\"${scannerHome}\\bin\\sonar-scanner\""
-
-                      withSonarQubeEnv('SonarQubeServer') {
-                          bat scannerCmd
-                      }
-                  }
+      dir('otp2_assignments/assignment_5') {
+          script {
+              def scannerHome = tool 'SonarScanner'
+              withSonarQubeEnv('SonarQubeServer') {
+                  bat "\"${scannerHome}\\bin\\sonar-scanner\""
               }
           }
       }
